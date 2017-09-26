@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Occupations  </title>
+  </head>
+  <body>
+    <h1>Occupations</h1>
+    <h3>Naotaka Kinoshita & Taylor Wong
+    <br>
+    <br>
+    A flask app with an "/occupations" route, which will generate an HTML page with an appropriate title, a descriptive heading, and a tablified version of the occupations data, followed by a randomly selected occupation.</h3>
+
+    <table>
+      <tr>
+	<th>Occupation</th>
+	<th>Percentage</th>
+      </tr>
+      {% for occ in arr_occ %}
+        <tr>
+	  <td> {{ occ[0] }} </td>
+	  <td> {{ occ[1] }} </td>
+	</tr>
+      {% endfor %}
+    </table>
+    <br><br>
+Randomly selected occupation:
+    {{occA}}
+    
+  </body>
+</html>

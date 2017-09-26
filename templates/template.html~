@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Occupations  </title>
+  </head>
+  <body>
+    <h1>Occupations</h1>
+    <h3>heading </h3>
+
+    <table>
+      <tr>
+	<th>Occupation</th>
+	<th>Percentage</th>
+      </tr>
+      {% for occ in ocks %}
+        <tr>
+	  <td> {{ occ[0] }} </td>
+	  <td> {{ occ[1] }} </td>
+	</tr>
+      {% endfor %}
+    </table>
+    
+randomly selected occupation:
+    {{occA}}
+    
+  </body>
+</html>
