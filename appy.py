@@ -19,24 +19,24 @@ occupations = []
 ## function to load the information from the file
 def load_file(filename):
     with open (filename, 'r') as f:
-        ## Read fileand make a list
+        ## Read file and make a list
         fstr = f.read()
         list_split = fstr.split('\n')
         heading = list_split[0]
-        list_split = list_split[1:len(list_split) - 1]
-        temp = [] #temporary dictionary
+        list_split = list_split[1:len(list_split) - 1] #getting rid of first line
+        temp_occ = [] #temporary list which will hold each line (ex: ["Occupation",6]) as a list (2D list)
         ## Accounting for occupations with commas in them
         for item in list_split:
             if item[0] == '"':
-                temp2 = [] #another temporary dictionary
-                temp2.append(item[1:item.index('"', 1)])
-                temp2.append(float(item[item.index('",', 1) + 2 :])) ## adding percentages and converting to float
-                temp.append(temp2)
+                comma_fix = [] #temporary list to account for the commas
+                comma_fix.append(item[1:item.index('"', 1)])
+                comma_fix.append(float(item[item.index('",', 1) + 2 :])) # adding percentages and converting to float
+                temp_occ.append(comma_fix)
             else:
-                temp.append(item.split(","))
-                temp[len(temp) - 1][1] = float(temp[len(temp) - 1][1])
+                temp_occ.append(item.split(","))
+                temp_occ[len(temp_occ) - 1][1] = float(temp_occ[len(temp_occ) - 1][1])
         global occupations
-        occupations = temp[:len(temp) - 2]
+        occupations = temp_occ[:len(temp_occ) - 2] #gets rid of last line ("Total...")
 
         
 ## Add occupations by their percentages ex:6.1% becomes 61 entries
