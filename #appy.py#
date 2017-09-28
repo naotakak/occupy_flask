@@ -15,7 +15,7 @@ occupations10 = []
 ## list of occupations with percentages attached
 occupations = []
 
-#use above functions specifically for occupations.csv file
+##loading up lists with occupations and percentages
 occupations = special.load_file("data/occupations.csv")
 occupations10 = special.load_occupations(occupations)
 
