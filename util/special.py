@@ -29,7 +29,7 @@ def load_file(filename):
         global occupations
         #occupations = []
         occupations = temp_occ[:len(temp_occ) - 2] #gets rid of last line ("Total...")
-        #return occupations
+        return occupations
 
         
 ## Add occupations by their percentages ex:6.1% becomes 61 entries
@@ -42,4 +42,7 @@ def load_occupations(occuations10):
     
 ## returns random element from occupations10
 def get_random(arr):
-    return random.choice(arr)
+    try:
+        return random.choice(arr)
+    except:
+        pass
