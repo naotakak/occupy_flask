@@ -11,11 +11,13 @@ occupations10 = []
 ## function to load the information from the file
 def load_file(filename):
     with open (filename, 'r') as f:
+
         ## Read file and make a list
         fstr = f.read()
         list_split = fstr.split('\n')
         list_split = list_split[1:len(list_split) - 1] #getting rid of first line
         temp_occ = [] #temporary list which will hold each line (ex: ["Occupation",6]) as a list (2D list)
+
         ## Accounting for occupations with commas in them
         for item in list_split:
             if item[0] == '"':
@@ -26,18 +28,19 @@ def load_file(filename):
             else:
                 temp_occ.append(item.split(","))
                 temp_occ[len(temp_occ) - 1][1] = float(temp_occ[len(temp_occ) - 1][1])
+
         global occupations
-        #occupations = []
         occupations = temp_occ[:len(temp_occ) - 2] #gets rid of last line ("Total...")
         return occupations
 
         
 ## Add occupations by their percentages ex:6.1% becomes 61 entries
-def load_occupations(occuations10):
-    for item in occupations10:
+def load_occupations(occupations):
+    occ = []
+    for item in occupations:
         for i in range(int(item[1] * 10)):
-            occupations10.append(item[0])
-    return occupations10
+            occ.append(item[0])
+    return occ
 
     
 ## returns random element from occupations10

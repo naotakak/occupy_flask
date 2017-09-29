@@ -4,8 +4,6 @@
 #<2017>-<09>-<27>   
 
 from flask import Flask, render_template
-import random
-#import util.special
 from util import special
 app = Flask(__name__)
 
@@ -15,7 +13,7 @@ occupations10 = []
 ## list of occupations with percentages attached
 occupations = []
 
-#use above functions specifically for occupations.csv file
+##use above functions specifically for occupations.csv file
 occupations = special.load_file("data/occupations.csv")
 occupations10 = special.load_occupations(occupations)
 
