@@ -6,6 +6,8 @@
 import random
 
 occupations = []
+occupations10 = []
+
 ## function to load the information from the file
 def load_file(filename):
     with open (filename, 'r') as f:
@@ -23,17 +25,16 @@ def load_file(filename):
                 temp_occ.append(comma_fix)
             else:
                 temp_occ.append(item.split(","))
-                temp_occ[len(temp_occ) - 1][1] = float(temp_occ[len(temp_occ) - 1][1]
+                temp_occ[len(temp_occ) - 1][1] = float(temp_occ[len(temp_occ) - 1][1])
         global occupations
         #occupations = []
         occupations = temp_occ[:len(temp_occ) - 2] #gets rid of last line ("Total...")
-        return occupations
+        #return occupations
 
         
 ## Add occupations by their percentages ex:6.1% becomes 61 entries
-def load_occupations(arr):
-    occupations10 = []
-    for item in arr:
+def load_occupations(occuations10):
+    for item in occupations10:
         for i in range(int(item[1] * 10)):
             occupations10.append(item[0])
     return occupations10
