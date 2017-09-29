@@ -19,6 +19,12 @@ occupations = []
 occupations = special.load_file("data/occupations.csv")
 occupations10 = special.load_occupations(occupations)
 
+#create default route
+@app.route("/")
+def home():
+    return "<a href='/occupations'>Occcupations</a>"
+
+
 #create route to generate HTML page
 @app.route("/occupations")
 def occupy():
